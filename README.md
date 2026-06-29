@@ -10,3 +10,5 @@ The critical requirement is that the shell must be running under an interactive 
 This enables SeDebugPrivilege and injects shellcode into a running SYSTEM process. 
 
 Replace the $sc byte array with msfvenom output. The script targets winlogon.exe by default which runs as SYSTEM. 
+
+By using RunasCs with --logon-type 2, a new process is spawned under an interactive logon session where SeDebugPrivilege can be genuinely enabled and used.
